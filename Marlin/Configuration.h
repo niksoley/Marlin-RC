@@ -609,8 +609,8 @@
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS 180
-#define Y_MAX_POS 215
-#define Z_MAX_POS 120
+#define Y_MAX_POS 190
+#define Z_MAX_POS 110
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -680,7 +680,7 @@
   #if ENABLED(AUTO_BED_LEVELING_GRID)
 
     #define LEFT_PROBE_BED_POSITION 10
-    #define RIGHT_PROBE_BED_POSITION 170
+    #define RIGHT_PROBE_BED_POSITION 140
     #define FRONT_PROBE_BED_POSITION 20
     #define BACK_PROBE_BED_POSITION 170
 
