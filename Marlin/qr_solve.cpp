@@ -9,9 +9,24 @@
 //
 //  This code was donated by Roxy-3D!
 
+
+#include "Marlin.h"
 #include "configuration.h"
-#include "Iterative_LSF.h"
+
+#include "ultralcd.h"
+#include "planner.h"
+#include "stepper.h"
+#include "endstops.h"
+#include "temperature.h"
+#include "cardreader.h"
+#include "configuration_store.h"
+#include "language.h"
+#include "pins_arduino.h"
 #include "math.h"
+#include "nozzle.h"
+#include "duration_t.h"
+#include "types.h"
+#include "Iterative_LSF.h"
 
 
 void idle();
@@ -19,7 +34,7 @@ double coefficients[3];         // We need a place to return the coefficients we
                     // This is where we do that!
 
 //double * iterative_LSF(int abl2, int n, double *eqnA, double *eqnB)
-double *qr_solve(int abl2, int n, double *eqnA, double *eqnB)
+double *qr_solve(double coeff[3], int abl2, int n, double *eqnA, double *eqnB)
 {
 double a= 0.0, b= 0.0, c=1.0, d=Z_PROBE_OFFSET_FROM_EXTRUDER;       // Start with some reasonable values for our coefficients
 double current, plus_next, minus_next, delta_size=.1;
@@ -143,6 +158,10 @@ SERIAL_PROTOCOLPGM("\n");
     coefficients[0] = -a;       // Save the values we have found
     coefficients[1] = -b;       // and return them to the caller!
     coefficients[2] = -d;
+
+    coeff[0] = -a;       // Save the values we have found
+    coeff[1] = -b;       // and return them to the caller!
+    coeff[2] = -d;
     return coefficients;
 }
 
