@@ -582,7 +582,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -680,7 +680,7 @@
   #if ENABLED(AUTO_BED_LEVELING_GRID)
 
     #define LEFT_PROBE_BED_POSITION 15
-    #define RIGHT_PROBE_BED_POSITION 180
+    #define RIGHT_PROBE_BED_POSITION 175
     #define FRONT_PROBE_BED_POSITION 30
     #define BACK_PROBE_BED_POSITION 200
 
